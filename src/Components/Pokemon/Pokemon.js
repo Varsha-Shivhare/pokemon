@@ -9,7 +9,7 @@ function Pokemon(){
 
     // const limit = 4;
     const [pokemonData, setPokemonData] = useState([]);
-    const [loadingPage, setLoadingPage] = useState(`https://pokeapi.co/api/v2/pokemon?limit=10`);
+    const [loadingPage, setLoadingPage] = useState(`https://pokeapi.co/api/v2/pokemon?limit=20`);
     const [searchTerm, setSearchTerm] = useState("");
 
 
@@ -59,10 +59,10 @@ function Pokemon(){
 
     const debounce = (func) => {
         let timer;
-        return function(...args){ // doubt why rest operator
+        return function(...args){
             const context = this;
             if(timer) clearTimeout(timer) //shorthand property & closure
-            timer = setTimeout(() => { // callback function
+            timer = setTimeout(() => {
                 timer = null
                 func.apply(context, args)
             }, 500)
