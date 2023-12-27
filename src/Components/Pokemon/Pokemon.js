@@ -1,5 +1,5 @@
 // import { Search } from '@mui/icons-material';
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useEffect} from 'react';
 // import {Button} from '@mui/material';
 // import axios from 'axios';
 import './Pokemon.css';
@@ -35,7 +35,7 @@ function Pokemon(){
 
     useEffect(() => {
         getAllPokemon();
-    }, [])
+    })
 
 
     const handleChangeColor = (color) => {
@@ -92,6 +92,7 @@ function Pokemon(){
          
                 <ul>
                 {
+                    // eslint-disable-next-line array-callback-return
                     pokemonData.filter(val => {
                         if(searchTerm === ""  || val.name.toLowerCase().includes(searchTerm.toLowerCase())){
                             return val
